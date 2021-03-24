@@ -15,6 +15,7 @@
 
 import pytest
 
+from django.db.utils import IntegrityError
 from mixer.backend.django import mixer
 
 from howler.models import Post
@@ -28,3 +29,9 @@ def post() -> Post:
 @pytest.mark.django_db
 def test_id_should_be_14_characters_long(post: Post):
     assert len(post.id) == 14
+
+
+@pytest.mark.django_db
+def test_id_must_be_unique(post: Post):
+    with pytest.raises(IntegrityError):
+        mixer.blend(Post, id=post.id)
