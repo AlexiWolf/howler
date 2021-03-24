@@ -21,5 +21,9 @@ class Post(models.Model):
     id = models.CharField(
         primary_key=True,
         max_length=14,
-        default=random_id
+        default=random_id,
+        editable=False,
+        blank=False,
+        null=False,
+        help_text="Randomly generated unique id"
     )
