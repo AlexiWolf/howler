@@ -14,7 +14,12 @@
 #  along with Howler.  If not, see <https://www.gnu.org/licenses/>.
 
 from django.db import models
+from random_id import random_id
 
 
 class Post(models.Model):
-    pass
+    id = models.CharField(
+        primary_key=True,
+        max_length=14,
+        default=random_id
+    )
