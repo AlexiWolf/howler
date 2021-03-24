@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+random-id = "*"
+python-decouple = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+pytest = "*"
+pytest-django = "*"
+mixer = "*"
+
+[requires]
+python_version = "3.9"
