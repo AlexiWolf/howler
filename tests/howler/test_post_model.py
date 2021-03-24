@@ -35,15 +35,3 @@ def test_id_should_be_14_characters_long(post: Post):
 def test_id_must_be_unique(post: Post):
     with pytest.raises(IntegrityError):
         mixer.blend(Post, id=post.id)
-
-
-@pytest.mark.django_db
-def test_should_not_allow_blank_id():
-    with pytest.raises(IntegrityError):
-        mixer.blend(Post, id="")
-
-
-@pytest.mark.django_db
-def test_should_not_allow_null_id():
-    with pytest.raises(IntegrityError):
-        mixer.blend(Post, id=None)
