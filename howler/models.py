@@ -25,5 +25,5 @@ class Post(models.Model):
         editable=False,
         blank=False,
         null=False,
-        help_text="Randomly generated unique id"
+        help_text="Randomly generated unique id",
     )

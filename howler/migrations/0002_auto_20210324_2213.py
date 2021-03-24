@@ -7,13 +7,15 @@ from random_id import random_id
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('howler', '0001_initial'),
+        ("howler", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='id',
-            field=models.CharField(default=random_id, max_length=14, primary_key=True, serialize=False),
+            model_name="post",
+            name="id",
+            field=models.CharField(
+                default=random_id, max_length=14, primary_key=True, serialize=False
+            ),
         ),
     ]
