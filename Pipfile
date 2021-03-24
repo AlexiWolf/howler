@@ -10,11 +10,14 @@ random-id = "*"
 python-decouple = "*"
 
 [dev-packages]
-black = "*"
 flake8 = "*"
 pytest = "*"
 pytest-django = "*"
 mixer = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
