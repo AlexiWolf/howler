@@ -142,3 +142,6 @@ cython_debug/
 # Pycharm / Intelij
 .idea/
 *.iml
+
+# VsCode
+.vscode/
