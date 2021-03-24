@@ -1,6 +1,53 @@
 # Howler Blog
 
- 
+Howler is a light and fast blogging backend.
+
+## Development Setup
+
+To install the project dependencies.
+```commandline
+pipenv sync
+```
+
+### Running Tests
+
+Pytest-Django requires the settings module to be set.  This can be done by creating a `.env` file and adding the
+following:
+
+```dotenv
+DJANGO_SETTINGS_MODULE="dev_server.settings"
+```
+
+The tests can be run with Pipenv and Pytest:
+
+```commandline
+pipenv run pytest
+```
+
+### The Development Server
+
+To start the development server, run:
+
+```commandline
+pipenv run python manage.py runserver
+```
+
+
+### Code Cleanup
+
+Code cleanup should be run before changes are pushed.
+
+Code formatting is handled by Black.
+
+```commandline
+pipenv run black
+```
+
+Check for problems with Flake8.
+
+```commandline
+pipenv run flake8
+```
 
 ## License
 
