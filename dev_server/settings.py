@@ -56,7 +56,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["djangorestframework", "howler"]
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "howler"
+]
+
+INSTALLED_APPS += THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
