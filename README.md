@@ -6,7 +6,7 @@ Howler is a light and fast blogging backend.
 
 To install the project dependencies.
 ```commandline
-pipenv sync
+pipenv install --dev
 ```
 
 ### Running Tests
