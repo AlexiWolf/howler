@@ -18,6 +18,17 @@ from random_id import random_id
 
 
 class Post(models.Model):
+    """
+    The Post model stores text-only content and other basic information about a blog
+    post such as the title, creation / publish date, and a list of authors.  The Post
+    class also provides a number of convenience methods to make interacting with posts
+    more intuitive.
+
+    As stated above, Posts only store the text content of the blog post.  This is an
+    intentional choice to keep the Post class focused on a single job.  Media should be
+    handled by a separate system, such as a one-to-many relationship with another model.
+    This is how the Howler Media extension is intended to function.
+    """
     id = models.CharField(
         primary_key=True,
         max_length=14,
@@ -25,5 +36,5 @@ class Post(models.Model):
         editable=False,
         blank=False,
         null=False,
-        help_text="Randomly generated unique id",
+        help_text="Randomly generated unique id.  This is not meant to be edited.",
     )
