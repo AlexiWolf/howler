@@ -3,6 +3,8 @@ python:
   - "3.7"
   - "3.8"
   - "3.9"
+env:
+  - DJANGO_SETTINGS_MODULE=dev_server.settings
 before_install:
   - pip install pipenv
 install:
