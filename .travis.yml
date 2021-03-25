@@ -1,14 +1,14 @@
 language: python
 python:
-  - "3.5"
-  - "3.6"
   - "3.7"
   - "3.8"
   - "3.9"
+env:
+  - DJANGO_SETTINGS_MODULE=dev_server.settings
 before_install:
   - pip install pipenv
 install:
-  - pipenv sync
+  - pipenv install --dev --pre
 # command to run tests
 script:
-  - pipenv run python manage.py test
+  - pipenv run pytest
