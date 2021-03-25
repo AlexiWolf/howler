@@ -29,6 +29,7 @@ class Post(models.Model):
     handled by a separate system, such as a one-to-many relationship with another model.
     This is how the Howler Media extension is intended to function.
     """
+
     id = models.CharField(
         primary_key=True,
         max_length=14,

@@ -44,4 +44,11 @@ def post_serializer(post: Post, get_request: Request):
 
 @pytest.mark.django_db
 def test_should_have_expected_fields(post_serializer: PostSerializer):
-    assert list(post_serializer.data.keys()) == ["id", "url", "title", "authors", "creation_date", "content"]
+    assert list(post_serializer.data.keys()) == [
+        "id",
+        "url",
+        "title",
+        "authors",
+        "creation_date",
+        "content",
+    ]
