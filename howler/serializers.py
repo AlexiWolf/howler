@@ -29,3 +29,7 @@ class PostSerializer(ModelSerializer):
             "creation_date",
             "content",
         ]
+
+        extra_kwargs = {
+            "url": {"view_name": "post-detail", "lookup_field": "id"}
+        }
