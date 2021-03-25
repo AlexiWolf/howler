@@ -8,7 +8,7 @@ python:
 before_install:
   - pip install pipenv
 install:
-  - pipenv sync
+  - pipenv install --dev
 # command to run tests
 script:
   - pipenv run python manage.py test
