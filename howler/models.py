@@ -13,8 +13,13 @@
 #  You should have received a copy of the GNU Affero General Public License
 #  along with Howler.  If not, see <https://www.gnu.org/licenses/>.
 
+from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils import timezone
 from random_id import random_id
+
+
+UserModel = get_user_model()
 
 
 class Post(models.Model):
@@ -39,3 +44,24 @@ class Post(models.Model):
         null=False,
         help_text="Randomly generated unique id.  This is not meant to be edited.",
     )
+
+    title = models.CharField(
+        max_length=256,
+        help_text="The title of the post."
+    )
+
+    authors = models.ManyToManyField(
+        to=UserModel,
+        help_text="Stores the Post's Authors."
+    )
+
+    creation_date = models.DateTimeField(
+        default=timezone.now,
+        editable=False,
+        help_text="The date and time at which the Post was created."
+    )
+
+    content = models.TextField(
+        help_text="The content of the Post."
+    )
+
