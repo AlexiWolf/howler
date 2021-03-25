@@ -9,4 +9,4 @@ install:
   - pipenv install --dev --pre
 # command to run tests
 script:
-  - pipenv run python manage.py test
+  - pipenv run pytest
