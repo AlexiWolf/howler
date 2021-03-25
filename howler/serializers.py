@@ -15,6 +15,17 @@
 
 from rest_framework.serializers import ModelSerializer
 
+from howler.models import Post
+
 
 class PostSerializer(ModelSerializer):
-    pass
+    class Meta:
+        model = Post
+        fields = [
+            "id",
+            "url",
+            "title",
+            "authors",
+            "creation_date",
+            "content",
+        ]
