@@ -31,5 +31,5 @@ class PostSerializer(ModelSerializer):
         ]
 
         extra_kwargs = {
-            "url": {"view_name": "post-detail", "lookup_field": "id"}
+            "url": {"view_name": "howler:post-detail", "lookup_field": "id"}
         }
