@@ -16,3 +16,4 @@
 from howler.api_router import ROUTER
 
 urlpatterns = ROUTER.urls
+
