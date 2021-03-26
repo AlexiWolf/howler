@@ -15,14 +15,8 @@
 
 import pytest
 from django.urls import reverse
-from mixer.backend.django import mixer
 
 from howler.models import Post
-
-
-@pytest.fixture()
-def post() -> Post:
-    return mixer.blend(Post)
 
 
 @pytest.mark.django_db
