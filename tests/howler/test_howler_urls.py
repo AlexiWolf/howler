@@ -16,9 +16,7 @@
 import pytest
 from django.urls import reverse
 
-from howler.models import Post
-
 
 @pytest.mark.django_db
-def test_should_use_howler_namespace(post: Post):
+def test_should_use_howler_namespace():
     assert reverse("howler:api-root") == f"/"
