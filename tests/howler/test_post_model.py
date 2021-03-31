@@ -35,3 +35,8 @@ def test_id_should_be_14_characters_long(post: Post):
 def test_id_must_be_unique(post: Post):
     with pytest.raises(IntegrityError):
         mixer.blend(Post, id=post.id)
+
+
+@pytest.mark.django_db
+def test_absolute_url_should_use_id(post: Post):
+    assert post.get_absolute_url() == f"/post/{post.id}/"
