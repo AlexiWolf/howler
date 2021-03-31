@@ -15,6 +15,7 @@
 
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from random_id import random_id
 
@@ -65,3 +66,5 @@ class Post(models.Model):
         help_text="The content of the Post."
     )
 
+    def get_absolute_url(self):
+        return reverse("howler:post-detail", kwargs={"id": self.id})
