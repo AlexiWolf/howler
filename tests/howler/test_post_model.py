@@ -16,6 +16,7 @@
 import pytest
 
 from django.db.utils import IntegrityError
+from django.urls import reverse
 from mixer.backend.django import mixer
 
 from howler.models import Post
@@ -38,5 +39,5 @@ def test_id_must_be_unique(post: Post):
 
 
 @pytest.mark.django_db
-def test_absolute_url_should_use_id(post: Post):
-    assert post.get_absolute_url() == f"/post/{post.id}/"
+def test_absolute_url_should_match_reverse_lookup(post: Post):
+    assert post.get_absolute_url() == reverse("howler:post-detail", kwargs={"id": post.id})
