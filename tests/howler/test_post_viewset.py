@@ -12,6 +12,7 @@
 #
 #  You should have received a copy of the GNU Affero General Public License
 #  along with Howler.  If not, see <https://www.gnu.org/licenses/>.
+from typing import Type
 
 import pytest
 from django.contrib.auth import get_user_model
@@ -41,7 +42,7 @@ def get_request(api_request_factory: APIRequestFactory):
 
 
 @pytest.fixture()
-def view_set() -> PostViewSet:
+def view_set() -> Type[PostViewSet]:
     return PostViewSet
 
 
