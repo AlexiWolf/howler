@@ -32,6 +32,15 @@ def post() -> Post:
 
 
 @pytest.fixture()
+def post_data() -> dict:
+    return {
+        "title": "Hello World",
+        "authors": [],
+        "content": "This is a test post."
+    }
+
+
+@pytest.fixture()
 def api_request_factory() -> APIRequestFactory:
     return APIRequestFactory()
 
@@ -60,3 +69,13 @@ def test_should_allow_anonymous_users_to_view_post_details(
     view = view_set.as_view({"get": "retrieve"})
     response = view(get_request, id=post.id)
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_should_deny_post_creation_from_anonymous_users(
+        post_data: dict, api_request_factory: APIRequestFactory, view_set: PostViewSet):
+    view = view_set.as_view({"post": "create"})
+    request = api_request_factory.post("/fake-url/", data=post_data, format="json")
+    response = view(request)
+    assert response.status_code == 401
+
