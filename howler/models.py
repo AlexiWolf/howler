@@ -46,25 +46,19 @@ class Post(models.Model):
         help_text="Randomly generated unique id.  This is not meant to be edited.",
     )
 
-    title = models.CharField(
-        max_length=256,
-        help_text="The title of the post."
-    )
+    title = models.CharField(max_length=256, help_text="The title of the post.")
 
     authors = models.ManyToManyField(
-        to=UserModel,
-        help_text="Stores the Post's Authors."
+        to=UserModel, help_text="Stores the Post's Authors."
     )
 
     creation_date = models.DateTimeField(
         default=timezone.now,
         editable=False,
-        help_text="The date and time at which the Post was created."
+        help_text="The date and time at which the Post was created.",
     )
 
-    content = models.TextField(
-        help_text="The content of the Post."
-    )
+    content = models.TextField(help_text="The content of the Post.")
 
     def get_absolute_url(self):
         return reverse("howler:post-detail", kwargs={"id": self.id})

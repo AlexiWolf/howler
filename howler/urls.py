@@ -18,4 +18,3 @@ from howler.api_router import ROUTER
 app_name = "howler"
 
 urlpatterns = ROUTER.urls
-

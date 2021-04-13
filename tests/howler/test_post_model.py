@@ -40,4 +40,6 @@ def test_id_must_be_unique(post: Post):
 
 @pytest.mark.django_db
 def test_absolute_url_should_match_reverse_lookup(post: Post):
-    assert post.get_absolute_url() == reverse("howler:post-detail", kwargs={"id": post.id})
+    assert post.get_absolute_url() == reverse(
+        "howler:post-detail", kwargs={"id": post.id}
+    )

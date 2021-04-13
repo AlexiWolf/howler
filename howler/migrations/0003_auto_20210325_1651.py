@@ -10,35 +10,54 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('howler', '0002_auto_20210324_2213'),
+        ("howler", "0002_auto_20210324_2213"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='authors',
-            field=models.ManyToManyField(help_text="Stores the Post's Authors.", to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="authors",
+            field=models.ManyToManyField(
+                help_text="Stores the Post's Authors.", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AddField(
-            model_name='post',
-            name='content',
-            field=models.TextField(default='Hello, World!', help_text='The content of the Post.'),
+            model_name="post",
+            name="content",
+            field=models.TextField(
+                default="Hello, World!", help_text="The content of the Post."
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='post',
-            name='creation_date',
-            field=models.DateTimeField(default=django.utils.timezone.now, editable=False, help_text='The date and time at which the Post was created.'),
+            model_name="post",
+            name="creation_date",
+            field=models.DateTimeField(
+                default=django.utils.timezone.now,
+                editable=False,
+                help_text="The date and time at which the Post was created.",
+            ),
         ),
         migrations.AddField(
-            model_name='post',
-            name='title',
-            field=models.CharField(default='Hello, world!', help_text='The title of the post.', max_length=256),
+            model_name="post",
+            name="title",
+            field=models.CharField(
+                default="Hello, world!",
+                help_text="The title of the post.",
+                max_length=256,
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='post',
-            name='id',
-            field=models.CharField(default=random_id, editable=False, help_text='Randomly generated unique id.  This is not meant to be edited.', max_length=14, primary_key=True, serialize=False),
+            model_name="post",
+            name="id",
+            field=models.CharField(
+                default=random_id,
+                editable=False,
+                help_text="Randomly generated unique id.  This is not meant to be edited.",
+                max_length=14,
+                primary_key=True,
+                serialize=False,
+            ),
         ),
     ]
