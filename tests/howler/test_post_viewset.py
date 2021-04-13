@@ -51,3 +51,11 @@ def test_should_allow_anonymous_users_to_view_post_list(
     view = view_set.as_view({"get": "list"})
     response = view(get_request)
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_should_allow_anonymous_users_to_view_post_details(
+        post: Post, get_request: WSGIRequest, view_set: PostViewSet):
+    view = view_set.as_view({"get": "retrieve"})
+    response = view(get_request, id=post.id)
+    assert response.status_code == 200
